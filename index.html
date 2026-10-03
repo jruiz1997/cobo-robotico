@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Cube - Boss Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui">
+        <div class="hud-item" id="hud1" style="border-color: #0ff; color: #0ff;">P1 Puntuación: <span id="score1">0</span> | Vidas: <span id="lives1">3</span></div>
+        <div class="hud-item" id="hud2" style="border-color: #f0f; color: #f0f;">P2 Puntuación: <span id="score2">0</span> | Vidas: <span id="lives2">3</span></div>
+        <div class="hud-item">Oleada: <span id="wave">1</span></div>
+    </div>
+
+    <div id="powerupIndicator"></div>
+
+    <div id="audioControls">
+        <button id="musicToggleBtn" class="cyber-btn">🎵 Música: ON</button>
+        <button id="sfxToggleBtn" class="cyber-btn">🔊 SFX: ON</button>
+    </div>
+
+    <div id="startScreen">
+        <h1>CYBER CUBE: BOSS EDITION</h1>
+        
+        <div class="mode-selector">
+            <button id="mode1Btn" class="cyber-btn" onclick="setGameMode(1)">1 Jugador</button>
+            <button id="mode2Btn" class="cyber-btn selected" onclick="setGameMode(2)">2 Jugadores</button>
+        </div>
+
+        <div class="controls-container">
+            <div class="controls-box" style="border-color: #0ff;">
+                <h3 style="color: #0ff;">Jugador 1 (Cyan)</h3>
+                <ul>
+                    <li>🎮 <strong>Movimiento:</strong> Flechas Teclado</li>
+                    <li>🎯 <strong>Apuntar:</strong> Cursor del Mouse</li>
+                    <li>🔫 <strong>Disparar:</strong> Clic Izquierdo</li>
+                </ul>
+            </div>
+            <div id="boxP2" class="controls-box" style="border-color: #f0f;">
+                <h3 style="color: #f0f;">Jugador 2 (Magenta)</h3>
+                <ul>
+                    <li>🎮 <strong>Movimiento:</strong> W - A - S - D</li>
+                    <li>🎯 <strong>Apuntar:</strong> Automático / Frente</li>
+                    <li>🔫 <strong>Disparar:</strong> Barra Espaciadora</li>
+                </ul>
+            </div>
+        </div>
+        <p>¡Cuidado con los jefes cada 3 oleadas! El Zombi Titán (oleada 9+) dispara una bazuca letal.</p>
+        <p style="color: #0ff; text-shadow: 0 0 8px #0ff;">❄️ Orbe de Hielo: Congela zombis | 👻 Orbe Fantasma: Aliados espectrales</p>
+        <button id="startBtn" class="cyber-btn" style="font-size: 22px; padding: 15px 50px;">INICIALIZAR SISTEMA</button>
+    </div>
+
+    <div id="gameOverScreen">
+        <h1 style="color: #ff3366; text-shadow: 0 0 20px #ff3366, 0 0 40px #f00;">SISTEMA COLAPSADO</h1>
+        <p id="finalScoresText">Puntuación P1: <span id="finalScore1">0</span> | Puntuación P2: <span id="finalScore2">0</span></p>
+        <button id="restartBtn" class="cyber-btn" style="font-size: 20px; padding: 12px 40px;">RECONECTAR</button>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
